@@ -1,0 +1,154 @@
+@startuml
+set namespaceSeparator ::
+
+class "app_tfm::main.dart::MyApp" {
+  +_MyAppState createState()
+}
+
+class "app_tfm::main.dart::_MyAppState" {
+  +Widget build()
+}
+
+class "app_tfm::views::login.dart::LoginView" {
+  +_LoginViewState createState()
+}
+
+class "app_tfm::views::login.dart::_LoginViewState" {
+  +TextEditingController emailEditingController
+  +TextEditingController passwordEditingController
+  +Future<void> LoginButtonPushed()
+  +Widget build()
+}
+
+"app_tfm::views::login.dart::_LoginViewState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+
+class "app_tfm::views::register.dart::RegisterView" {
+  +_RegisterViewState createState()
+}
+
+class "app_tfm::views::register.dart::_RegisterViewState" {
+  +TextEditingController emailEditingController
+  +TextEditingController passwordEditingController
+  +TextEditingController repeatPasswordEditingController
+  +Future<void> RegisterButtonPushed()
+  +Widget build()
+}
+
+"app_tfm::views::register.dart::_RegisterViewState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+
+class "app_tfm::views::tabs_page.dart::AddRoomPage" {
+  {static} +String routeName
+  +_State createState()
+}
+
+class "app_tfm::views::tabs_page.dart::_State" {
+  +TextEditingController nameController
+  +String selected
+  +List<dynamic> items
+  +void addItemToList()
+  +Widget build()
+}
+
+"app_tfm::views::tabs_page.dart::_State" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+
+class "app_tfm::views::bottom_nav_bar.dart::MainMenuView" {
+  +_MainMenuViewState createState()
+}
+
+class "app_tfm::views::bottom_nav_bar.dart::_MainMenuViewState" {
+  -int _selectedIndex
+  -void _onItemTapped()
+  +Widget build()
+}
+
+class "app_tfm::views::notifications_page.dart::NotificationsPage" {
+  +dynamic Function(bool) isHideBottomNavBar
+  +_NotificationsPageState createState()
+}
+
+"app_tfm::views::notifications_page.dart::NotificationsPage" o-- "null::dynamic Function(bool)"
+
+class "app_tfm::views::notifications_page.dart::_NotificationsPageState" {
+  +List<dynamic> items
+  +bool wantKeepAlive
+  -bool _handleScrollNotification()
+  +Widget build()
+}
+
+"flutter::src::widgets::automatic_keep_alive.dart::AutomaticKeepAliveClientMixin" <|-- "app_tfm::views::notifications_page.dart::_NotificationsPageState"
+
+class "app_tfm::views::activities_page.dart::ActivitiesPage" {
+  +dynamic Function(bool) isHideBottomNavBar
+  +_ActivitiesPageState createState()
+}
+
+"app_tfm::views::activities_page.dart::ActivitiesPage" o-- "null::dynamic Function(bool)"
+
+class "app_tfm::views::activities_page.dart::_ActivitiesPageState" {
+  +List<dynamic> items
+  +int selectedIndex
+  +bool wantKeepAlive
+  -bool _handleScrollNotification()
+  +Widget build()
+}
+
+"flutter::src::widgets::automatic_keep_alive.dart::AutomaticKeepAliveClientMixin" <|-- "app_tfm::views::activities_page.dart::_ActivitiesPageState"
+
+class "app_tfm::views::rooms_page.dart::RoomPage" {
+  +dynamic Function(bool) isHideBottomNavBar
+  +_RoomPageState createState()
+}
+
+"app_tfm::views::rooms_page.dart::RoomPage" o-- "null::dynamic Function(bool)"
+
+class "app_tfm::views::rooms_page.dart::_RoomPageState" {
+  +List<dynamic> items
+  +bool wantKeepAlive
+  -bool _handleScrollNotification()
+  +Widget build()
+}
+
+"flutter::src::widgets::automatic_keep_alive.dart::AutomaticKeepAliveClientMixin" <|-- "app_tfm::views::rooms_page.dart::_RoomPageState"
+
+class "app_tfm::views::add_activity_page.dart::AddActivityPage" {
+  {static} +String routeName
+  +_AddActivityPageState createState()
+}
+
+class "app_tfm::views::add_activity_page.dart::_AddActivityPageState" {
+  -double _height
+  -double _width
+  -String _setTime
+  -String _setDate
+  -String _hour
+  -String _minute
+  -String _time
+  +String dateTime
+  +DateTime selectedDate
+  +TimeOfDay selectedTime
+  -TextEditingController _dateController
+  -TextEditingController _timeController
+  +TextEditingController marginEditingController
+  +TextEditingController nameController
+  +TextEditingController descriptionEditingController
+  +List<dynamic> items
+  -Future<Null> _selectDate()
+  -Future<Null> _selectTime()
+  +Widget build()
+}
+
+"app_tfm::views::add_activity_page.dart::_AddActivityPageState" o-- "flutter::src::material::time.dart::TimeOfDay"
+"app_tfm::views::add_activity_page.dart::_AddActivityPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+
+class "app_tfm::views::simple_screen.dart::SimpleScreen" {
+  +String message
+  +_SimpleScreenState createState()
+}
+
+class "app_tfm::views::simple_screen.dart::_SimpleScreenState" {
+  -String _message
+  +Widget build()
+}
+
+
+@enduml

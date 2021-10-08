@@ -1,0 +1,32 @@
+{
+    "name": "Add-on TFM",
+    "version": "1.0",
+    "slug": "addon_tfm",
+    "description": "Add-on para comunicar home-assistant con firebase",
+    "arch": [
+        "armhf",
+        "armv7",
+        "aarch64",
+        "amd64",
+        "i386"
+    ],
+    "startup": "before",
+    "boot": "auto",
+    "map": [
+        "config"
+    ],
+    "options": {
+        "mqtt_user": "mqtt",
+        "mqtt_password": "mqtt",
+        "app_user": "aaa@aaa.aaa",
+        "app_password": "aaaaaa",
+        "home_assistant_ip": "homeassistant.local"
+    },
+    "schema": {
+        "mqtt_user": "str",
+        "mqtt_password": "str",
+        "app_user": "str",
+        "app_password": "str",
+        "home_assistant_ip": "str"
+    }
+}
